@@ -1,0 +1,55 @@
+/**
+ * Single source of truth for company details and navigation.
+ *
+ * Values typed as `null` are still to be confirmed by the owner. The UI
+ * shows a bracketed placeholder (e.g. [PHONE NUMBER]) until they are set,
+ * so nothing invented ever appears as fact.
+ */
+
+export const site = {
+  name: 'Bentaz Tech Solutions Ltd.',
+  shortName: 'Bentaz',
+  tagline: 'Building Technology Businesses Can Trust.',
+  rcNumber: '7444114',
+  location: 'Abuja, Nigeria',
+  contact: {
+    email: null as string | null,
+    phone: null as string | null,
+    whatsapp: null as string | null, // digits only with country code, e.g. 234XXXXXXXXXX
+    address: null as string | null,
+  },
+} as const;
+
+export function whatsappUrl(): string {
+  const n = site.contact.whatsapp;
+  return n ? `https://wa.me/${n}` : '#';
+}
+
+export type NavItem = { label: string; href: string };
+
+export const navItems: NavItem[] = [
+  { label: 'Services', href: '/services' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Academy', href: '/academy' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
+
+export const footerServices: NavItem[] = [
+  { label: 'Business websites', href: '/services' },
+  { label: 'Custom software', href: '/services' },
+  { label: 'AI and automation', href: '/services' },
+  { label: 'Cybersecurity', href: '/services' },
+  { label: 'IT support', href: '/services' },
+  { label: 'Digital marketing and SEO', href: '/services' },
+];
+
+export const footerCompany: NavItem[] = [
+  { label: 'About', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Bentaz Tech Academy', href: '/academy' },
+  { label: 'Contact', href: '/contact' },
+];

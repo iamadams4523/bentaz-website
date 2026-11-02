@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  --bg: #05071a;
+  --surface: #0b0e2b;
+  --text: #f5f5f7;
+  --muted: #a3a8c6;
+  --orange: #ff6a00;
+  --link: #ff8a3d;
+  --err: #ff9b7a;
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-2: rgba(255, 255, 255, 0.095);
+  --gb: rgba(255, 255, 255, 0.14);
+  --hi: rgba(255, 255, 255, 0.24);
+  --sh: 0 30px 70px -32px rgba(0, 0, 0, 0.85);
+  --o1: rgba(255, 106, 0, 0.34);
+  --o2: rgba(70, 90, 255, 0.36);
+  --o3: rgba(255, 106, 0, 0.16);
+  --ring: rgba(255, 255, 255, 0.24);
+  --field: rgba(255, 255, 255, 0.07);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f5f5f7;
+  --text: #070b3a;
+  --muted: #585d78;
+  --link: #c24e00;
+  --err: #b42318;
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-2: rgba(255, 255, 255, 0.8);
+  --gb: rgba(7, 11, 58, 0.1);
+  --hi: rgba(255, 255, 255, 0.95);
+  --sh: 0 26px 60px -30px rgba(7, 11, 58, 0.32);
+  --o1: rgba(255, 106, 0, 0.3);
+  --o2: rgba(90, 110, 255, 0.24);
+  --o3: rgba(255, 150, 70, 0.22);
+  --ring: rgba(7, 11, 58, 0.22);
+  --field: rgba(255, 255, 255, 0.85);
+}
+
+@theme inline {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--text);
+  --color-muted: var(--muted);
+  --color-brand: var(--orange);
+  --color-navy: #070b3a;
+  --color-link: var(--link);
+  --color-danger: var(--err);
+  --color-gborder: var(--gb);
+  --color-field: var(--field);
+  --color-glass: var(--glass);
+  --color-glass-2: var(--glass-2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* Frosted-glass surface. Pair with a radius utility, e.g. "glass rounded-[28px]". */
+@utility glass {
+  background: var(--glass);
+  border: 1px solid var(--gb);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow:
+    var(--sh),
+    inset 0 1px 0 var(--hi);
+}
+
+/* A more opaque glass, for nav, menus and nested panels. */
+@utility glass-strong {
+  background: var(--glass-2);
+  border: 1px solid var(--gb);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  backdrop-filter: blur(24px) saturate(170%);
+  box-shadow:
+    var(--sh),
+    inset 0 1px 0 var(--hi);
+}
+
+/* Orbit motif taken from the logo's ellipse. */
+.orbit {
+  position: absolute;
+  width: 640px;
+  height: 240px;
+  left: 50%;
+  top: 50%;
+  margin: -120px 0 0 -320px;
+  transform: rotate(-18deg);
+  pointer-events: none;
+}
+
+.orbit-ring {
+  stroke: var(--ring);
+}
+
+.orbit-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--orange);
+  box-shadow:
+    0 0 0 6px rgba(255, 106, 0, 0.25),
+    0 0 26px 6px rgba(255, 106, 0, 0.55);
+  offset-path: path('M320 120m-320 0a320 120 0 1 0 640 0a320 120 0 1 0 -640 0');
+  offset-rotate: 0deg;
+  animation: bz-orbit 30s linear infinite;
+}
+
+@keyframes bz-orbit {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .orbit-dot {
+    animation: none;
+    offset-distance: 22%;
+  }
+}
