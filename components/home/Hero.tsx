@@ -42,8 +42,8 @@ function MiniIcon({ name }: { name: IconName }) {
 
 export function Hero() {
   return (
-    <section className="pb-8 pt-10 sm:pt-16 lg:pb-14 lg:pt-18">
-      <div className="mx-auto grid w-full max-w-310 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[7fr_5fr] lg:gap-12">
+    <section className="overflow-x-clip pb-8 pt-10 sm:pt-16 lg:pb-14 lg:pt-18">
+      <div className="mx-auto grid w-screen max-w-310 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[7fr_5fr] lg:gap-12">
         <div>
           <Eyebrow>
             {site.location} · Registered company RC {site.rcNumber}
