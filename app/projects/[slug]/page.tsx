@@ -43,8 +43,8 @@ function Skeleton() {
     <section className="pb-6 pt-10 sm:pt-16" aria-hidden="true">
       <Container>
         <div className="h-4 w-48 rounded-full bg-glass" />
-        <div className="mt-6 h-14 max-w-[640px] rounded-2xl bg-glass" />
-        <div className="mt-5 h-20 max-w-[560px] rounded-2xl bg-glass" />
+        <div className="mt-6 h-14 max-w-160 rounded-2xl bg-glass" />
+        <div className="mt-5 h-20 max-w-140 rounded-2xl bg-glass" />
       </Container>
     </section>
   );

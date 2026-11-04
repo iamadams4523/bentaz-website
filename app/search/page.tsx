@@ -27,7 +27,7 @@ export default function SearchPage() {
           <Suspense
             fallback={
               <div
-                className="h-[60px] max-w-[640px] rounded-full border border-gborder bg-field"
+                className="h-15W max-w-160 rounded-full border border-gborder bg-field"
                 aria-hidden="true"
               />
             }

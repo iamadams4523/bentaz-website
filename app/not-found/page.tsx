@@ -32,9 +32,9 @@ export default function NotFound() {
   return (
     <section className="py-14 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-[760px] text-center">
+        <div className="mx-auto max-w-190 text-center">
           <p
-            className="text-[96px] font-semibold leading-none tracking-[-0.05em] text-brand sm:text-[140px]"
+            className="text-[96px] font-semibold leading-none tracking-tighter text-brand sm:text-[140px]"
             aria-hidden="true"
           >
             404
@@ -51,7 +51,7 @@ export default function NotFound() {
             action="/search"
             method="get"
             role="search"
-            className="mx-auto mt-8 flex max-w-[520px] gap-2.5"
+            className="mx-auto mt-8 flex max-w-130 gap-2.5"
           >
             <label htmlFor="nf-q" className="sr-only">
               Search the site
