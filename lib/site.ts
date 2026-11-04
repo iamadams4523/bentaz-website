@@ -20,9 +20,22 @@ export const site = {
   },
 } as const;
 
-export function whatsappUrl(): string {
+/** WhatsApp click-to-chat. Pass a message to pre-fill it (e.g. the page or service name). */
+export function whatsappUrl(message?: string): string {
   const n = site.contact.whatsapp;
-  return n ? `https://wa.me/${n}` : '#';
+  if (!n) return '#';
+  return message
+    ? `https://wa.me/${n}?text=${encodeURIComponent(message)}`
+    : `https://wa.me/${n}`;
+}
+
+/** Public site address, e.g. https://www.example.com (no trailing slash). Set NEXT_PUBLIC_SITE_URL in .env.local. */
+export const siteUrl: string | null =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? null;
+
+/** Absolute URL for a path, or null until the site address is configured. */
+export function absoluteUrl(path: string): string | null {
+  return siteUrl ? `${siteUrl}${path}` : null;
 }
 
 export type NavItem = { label: string; href: string };
