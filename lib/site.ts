@@ -51,12 +51,27 @@ export const navItems: NavItem[] = [
 ];
 
 export const footerServices: NavItem[] = [
-  { label: 'Business websites', href: '/services' },
-  { label: 'Custom software', href: '/services' },
-  { label: 'AI and automation', href: '/services' },
-  { label: 'Cybersecurity', href: '/services' },
-  { label: 'IT support', href: '/services' },
-  { label: 'Digital marketing and SEO', href: '/services' },
+  {
+    label: 'Business websites',
+    href: '/services/business-websites-and-landing-pages',
+  },
+  {
+    label: 'Custom software',
+    href: '/services/custom-software-and-business-systems',
+  },
+  { label: 'AI and automation', href: '/services/ai-and-business-automation' },
+  {
+    label: 'Cybersecurity',
+    href: '/services/cybersecurity-and-digital-safety',
+  },
+  {
+    label: 'IT support',
+    href: '/services/it-infrastructure-and-managed-it-support',
+  },
+  {
+    label: 'Digital marketing and SEO',
+    href: '/services/digital-marketing-and-seo',
+  },
 ];
 
 export const footerCompany: NavItem[] = [
@@ -65,4 +80,5 @@ export const footerCompany: NavItem[] = [
   { label: 'Insights', href: '/insights' },
   { label: 'Bentaz Tech Academy', href: '/academy' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Search', href: '/search' },
 ];
